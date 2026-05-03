@@ -1,6 +1,6 @@
 # STXM Autoencoder Denoising
 
-PyTorch implementation of an unsupervised autoencoder for denoising 3D STXM hyperspectral datasets.
+PyTorch implementation of an unsupervised autoencoder for denoising 2D STXM hyperspectral datasets.
 
 ## Why?
 
