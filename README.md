@@ -81,3 +81,6 @@ pip install -r requirements.txt
 
 Faidra Amargianou
 
+## Article
+
+F.Amargianou, P.Bärmann, N.Sharma, M.Lounasvuori, A.Furchner, R.Kenaz, S.Ghosh, J.-D.Förster, C.Pöhlker, M.Weigand, T.Petit, Angew. Chem. Int. Ed.2026, 65, e20508, https://doi.org/10.1002/anie.202520508.
