@@ -1,82 +1,83 @@
-# \# Denoising STXM Hyperspectral Data with Autoencoders
+# STXM Autoencoder Denoising
 
-# 
+PyTorch implementation of an unsupervised autoencoder for denoising 3D STXM hyperspectral datasets.
 
-# This repository provides a PyTorch-based unsupervised denoising autoencoder for 3D STXM hyperspectral image cubes.
+## Why?
 
-# 
+Scanning Transmission X-ray Microscopy (STXM) datasets often suffer from:
 
-# \## Input format
+- low photon statistics
+- detector noise
+- weak spectral contrast
+- limited acquisition time
 
-# 
+This project uses a shallow neural autoencoder to recover cleaner spectra while preserving spectral features.
 
-# The input cube has shape:
+## Features
 
-# 
+✓ Unsupervised learning  
+✓ No labelled data needed  
+✓ Spectral denoising of hyperspectral cubes  
+✓ Designed for X-ray spectroscopy / STXM workflows  
 
-# (X, Y, E)
+## Input
 
-# 
+Hyperspectral cube:
 
-# where:
+```python
+(X, Y, E)
+```
 
-# 
+where:
 
-# \- X = spatial dimension
+- `X, Y` = spatial dimensions
+- `E` = energy channels
 
-# \- Y = spatial dimension
+## Quick Start
 
-# \- E = spectral / energy channels
+```python
+from denoising import denoise_cube_simple
 
-# 
+denoised = denoise_cube_simple(
+    cube,
+    bottleneck=4,
+    num_epochs=300,
+    noise_factor=0.05
+)
+```
 
-# \## Method
+## Method
 
-# 
+Pipeline:
 
-# This workflow performs:
+```text
+Raw cube → normalization → noise injection → autoencoder → denoised cube
+```
 
-# 
+## Applications
 
-# 1\. Cube reshaping into spectral vectors
+- STXM
+- XANES imaging
+- Synchrotron microscopy
+- Hyperspectral imaging
 
-# 2\. Percentile normalization
+## Scientific caution
 
-# 3\. Autoencoder training with Gaussian noise injection
+Autoencoders may smooth weak spectral signatures.
 
-# 4\. Spectral reconstruction
+Always validate denoised spectra against:
 
-# 5\. Reshaping back into image cube
+- raw spectra
+- reference spectra
+- known absorption features
 
-# 
+## Dependencies
 
-# \## Parameters
+```bash
+pip install -r requirements.txt
+```
 
-# 
+## Author
 
-# \- cube → input hyperspectral cube
-
-# \- bottleneck → latent dimension
-
-# \- num\_epochs → training epochs
-
-# \- noise\_factor → Gaussian noise level
-
-# 
-
-# \## Output
-
-# 
-
-# Returns a denoised cube with the same shape as the input.
-
-# 
-
-# \## Scientific note
-
-# 
-
-# This method may smooth weak spectral features.
-
-# Always compare denoised spectra with raw spectra and reference spectra.
+artMATERIALS
 
