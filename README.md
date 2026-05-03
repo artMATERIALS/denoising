@@ -79,5 +79,5 @@ pip install -r requirements.txt
 
 ## Author
 
-artMATERIALS
+Faidra Amargianou
 
